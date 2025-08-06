@@ -8,15 +8,15 @@ No UI—API only.
 
 This system consists of 7 microservices:
 
-| Microservice                     | Role / Service                 | Database | Port | Status      | Done By                                   |
-|----------------------------------|--------------------------------|----------|------|-------------|-------------------------------------------|
-| [**Authentication  Service**]( ) | Microservice 1: Authentication |          | 9080 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
-| [**Product Service**]( )         | Microservice 2: Product        |          | 8586 | 🧠 Planning |                                           |
-| [**Inventory Service**]( )       | Microservice 3: Inventory      |          | 8587 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
-| [**Customer  Service**]( )       | Microservice 4: Customer       |          | 8588 | 🧠 Planning |                                           |
-| [**Order Service**]( )           | Microservice 5: Order          |          | 8589 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
-| [**Discount  Service**]( )       | Microservice 6: Discount       |          | 8590 | 🧠 Planning |                                           |
-| [**Review  Service**]( )         | Microservice 5: Order          |          | 8591 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| Microservice                                                                           | Role / Service                 | Database | Port | Status      | Done By                                   |
+|----------------------------------------------------------------------------------------|--------------------------------|----------|------|-------------|-------------------------------------------|
+| [**Authentication  Service**](https://github.com/Ochwada/ZalandoLiteV2-authentication) | Microservice 1: Authentication |          | 9080 | ✅ Done      | [**Ochwada**](https://github.com/Ochwada) |
+| [**Product Service**]( )                                                               | Microservice 2: Product        |          | 8586 | 🧠 Planning |                                           |
+| [**Inventory Service**]( )                                                             | Microservice 3: Inventory      |          | 8587 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| [**Customer  Service**]( )                                                             | Microservice 4: Customer       |          | 8588 | 🧠 Planning |                                           |
+| [**Order Service**]( )                                                                 | Microservice 5: Order          |          | 8589 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| [**Discount  Service**]( )                                                             | Microservice 6: Discount       |          | 8590 | 🧠 Planning |                                           |
+| [**Review  Service**]( )                                                               | Microservice 5: Order          |          | 8591 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
 
 Each service is independently deployable and communicates over REST APIs. Docker is used for containerization and
 orchestration is done using **Docker Compose**.
@@ -99,8 +99,55 @@ The system is composed of several specialized services, each responsible for a s
 #### Core Functions:
 - **Google OAuth2 login**: Allows users to sign in securely via Google. 
 - **User registration**: Registers new users and stores basic profile info. 
-- **Token validation**: Verifies access tokens for inter-service communication. 
-- **User info endpoint**: Exposes user details to other services (e.g., Order, Review). 
-- **Role-based access control** : Enforces route-level security if extended.
+- **Token validation**: Verifies access tokens for inter-service communication.
 
 
+
+
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Docker + Docker Compose installed
+- Git installed
+- Java 17+ and Maven (for local builds, if needed)
+
+### Step 1: Clone the Repositories
+
+```bash 
+
+git clone https://github.com/Ochwada/ZalandoLiteV2-authentication authentication-Service
+
+
+```
+
+### Step 2: Directory Layout
+Ensure your directory looks like this:
+
+```
+MicroInventorySystem/
+├── docker-compose.yml
+├── .gitignore
+├── README.md
+│
+├── authentication-service/
+├── product-service/
+├── inventory-service/
+└── order-service/
+```
+
+### Step 3: Environment Variables / Environment Configurations
+Each service includes a `.env` file with required configuration.
+
+## Data Persistence
+
+- MongoDB data is stored in mongo_data volume
+- PostgreSQL data is stored in pg_data volume
+
+You can verify volumes using:
+```bash
+docker volume ls
+
+```
