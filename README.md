@@ -101,9 +101,28 @@ The system is composed of several specialized services, each responsible for a s
 - **User registration**: Registers new users and stores basic profile info. 
 - **Token validation**: Verifies access tokens for inter-service communication.
 
+## Common Tech Stack
 
+| Technology          | Purpose                                                                      |
+|---------------------|------------------------------------------------------------------------------|
+| **Java 17+**        | Modern programming language used to build the microservice                   |
+| **Spring Boot**     | Framework for rapid application development and configuration                |
+| **Spring Security** | Handles authentication, authorization, and protection against common attacks |
+| **OAuth2 (OIDC)**   | Secure login flow using Google as a trusted identity provider                |
+| **Maven**           | Dependency and build management tool for Java projects                       |
 
-
+### Common Dependencies
+| Dependency Artifact                 | Purpose                                                                 |
+|-------------------------------------|-------------------------------------------------------------------------|
+| `spring-boot-starter-oauth2-client` | Enables OAuth2 login (e.g. Google), and integrates with OpenID Connect  |
+| `spring-boot-starter-security`      | Adds Spring Security for securing endpoints, sessions, and roles        |
+| `spring-boot-starter-thymeleaf`     | Provides Thymeleaf support for rendering HTML views on the server side  |
+| `spring-boot-starter-validation`    | Enables Java Bean Validation (e.g., `@Valid`, `@Email`, etc.)           |
+| `spring-boot-starter-web`           | Core starter for RESTful web applications using Spring MVC              |
+| `lombok`                            | Reduces boilerplate by auto-generating code like getters, setters, etc. |
+| `spring-boot-starter-test`          | Includes tools like JUnit, Mockito, AssertJ for unit/integration tests  |
+| `spring-security-test`              | Adds support for testing Spring Security (e.g., mocking users/roles)    |
+| `dotenv-java`                       | Loads environment variables from `.env` file at runtime                 |
 
 ---
 
