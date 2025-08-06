@@ -8,15 +8,15 @@ No UI—API only.
 
 This system consists of 7 microservices:
 
-| Microservice                     | Role / Service                 | Database | Port | Status      |
-|----------------------------------|--------------------------------|----------|------|-------------|
-| [**Authentication  Service**]( ) | Microservice 1: Authentication |          | 9080 | 🧠 Planning |
-| [**Product Service**]( )         | Microservice 2: Product        |          | 8586 | 🧠 Planning |
-| [**Inventory Service**]( )       | Microservice 3: Inventory      |          | 8587 | 🧠 Planning |
-| [**Customer  Service**]( )       | Microservice 4: Customer       |          | 8588 | 🧠 Planning |
-| [**Order Service**]( )           | Microservice 5: Order          |          | 8589 | 🧠 Planning |
-| [**Discount  Service**]( )       | Microservice 6: Discount       |          | 8590 | 🧠 Planning |
-| [**Review  Service**]( )         | Microservice 5: Order          |          | 8591 | 🧠 Planning |
+| Microservice                     | Role / Service                 | Database | Port | Status      | Done By                                   |
+|----------------------------------|--------------------------------|----------|------|-------------|-------------------------------------------|
+| [**Authentication  Service**]( ) | Microservice 1: Authentication |          | 9080 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| [**Product Service**]( )         | Microservice 2: Product        |          | 8586 | 🧠 Planning |                                           |
+| [**Inventory Service**]( )       | Microservice 3: Inventory      |          | 8587 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| [**Customer  Service**]( )       | Microservice 4: Customer       |          | 8588 | 🧠 Planning |                                           |
+| [**Order Service**]( )           | Microservice 5: Order          |          | 8589 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| [**Discount  Service**]( )       | Microservice 6: Discount       |          | 8590 | 🧠 Planning |                                           |
+| [**Review  Service**]( )         | Microservice 5: Order          |          | 8591 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
 
 Each service is independently deployable and communicates over REST APIs. Docker is used for containerization and
 orchestration is done using **Docker Compose**.
