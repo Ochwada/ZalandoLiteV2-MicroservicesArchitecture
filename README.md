@@ -16,7 +16,7 @@ This system consists of 7 microservices:
 | [**Customer  Service**]( )                                                             | Microservice 4: Customer       |          | 8588 | 🧠 Planning | [**Reyhan**](https://github.com/reyhanovelek)]                      
 | [**Order Service**]( )                                                                 | Microservice 5: Order          |          | 8589 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
 | [**Discount  Service**]( )                                                             | Microservice 6: Discount       |          | 8590 | 🧠 Planning | |[**Reyhan**](https://github.com/reyhanovelek)]                        
-| [**Review  Service**]( )                                                               | Microservice 7: Order          |          | 8591 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
+| [**Review  Service**]( )                                                               | Microservice 7: Review        |          | 8591 | 🧠 Planning | [**Ochwada**](https://github.com/Ochwada) |
 
 Each service is independently deployable and communicates over REST APIs. Docker is used for containerization and
 orchestration is done using **Docker Compose**.
