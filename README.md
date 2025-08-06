@@ -146,8 +146,21 @@ Each service includes a `.env` file with required configuration.
 - MongoDB data is stored in mongo_data volume
 - PostgreSQL data is stored in pg_data volume
 
+## Dockerization
+Ensure you have a `Dockerfile` and `docker-compose.yml`
+Then run with : 
+```yaml
+docker-compose build --no-cache    # Rebuild all images from scratch
+docker-compose up
+
+
+# Remove volumes & orphan containers
+docker-compose down --volumes --remove-orphans  
+```
+
 You can verify volumes using:
 ```bash
 docker volume ls
-
 ```
+
+
