@@ -12,7 +12,7 @@ This system consists of 7 microservices:
 |----------------------------------------------------------------------------------------|--------------------------------|----------|------|----------------|-----------------------------------------------|
 | [**Authentication  Service**](https://github.com/Ochwada/ZalandoLiteV2-authentication) | Microservice 1: Authentication |          | 9080 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Product Service**]( )                                                               | Microservice 2: Product        |          | 8586 | 🚧 in Progress | [**Reyhan**](https://github.com/reyhanovelek) |
-| [**Inventory Service**]( )                                                             | Microservice 3: Inventory      |          | 8587 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Inventory Service**](https://github.com/Ochwada/ZalandoLiteV2-inventory)            | Microservice 3: Inventory      |          | 8587 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Customer  Service**]( )                                                             | Microservice 4: Customer       |          | 8588 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |
 | [**Order Service**]( )                                                                 | Microservice 5: Order          |          | 8589 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Discount  Service**]( )                                                             | Microservice 6: Discount       |          | 8590 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |                       
@@ -92,7 +92,7 @@ zalando-lite-v2/
 The system is composed of several specialized services, each responsible for a specific domain:
 
 ### 1️⃣  Microservice 1: Authentication  Service
-🖇️ [Git Repository : Authentication Service]( )
+🖇️ [Git Repository : Authentication Service](https://github.com/Ochwada/ZalandoLiteV2-authentication)
 
 **Purpose**: Handles user authentication, registration, and authorization across the system via Oauth2.
 
@@ -101,6 +101,22 @@ The system is composed of several specialized services, each responsible for a s
 - **User registration**: Registers new users and stores basic profile info. 
 - **Token validation**: Verifies access tokens for inter-service communication.
 
+
+### 2️⃣ Microservice 2: Product  Service
+🖇️ [Git Repository : Product Service]( )
+
+**Purpose**: Manages product catalog (CRUD), categories, pricing.
+
+#### Core Functions:
+
+### 3️⃣ Microservice 3: Inventory  Service
+🖇️ [Git Repository : Inventory Service](https://github.com/Ochwada/ZalandoLiteV2-inventory)
+
+**Purpose**: Maintains stock levels for each product and updates inventory on product movement.
+
+#### Core Functions:
+- **CRUD operations for inventory**: Allows the creation and updating of stock data.
+- **Track stock per product**: Maintains quantity and stock status for each individual product.
 ## Common Tech Stack
 
 | Technology          | Purpose                                                                      |
@@ -110,6 +126,7 @@ The system is composed of several specialized services, each responsible for a s
 | **Spring Security** | Handles authentication, authorization, and protection against common attacks |
 | **OAuth2 (OIDC)**   | Secure login flow using Google as a trusted identity provider                |
 | **Maven**           | Dependency and build management tool for Java projects                       |
+| **Docker**          | Containerization for service and database                                    |
 
 ### Common Dependencies
 | Dependency Artifact                 | Purpose                                                                 |
@@ -137,7 +154,9 @@ The system is composed of several specialized services, each responsible for a s
 
 ```bash 
 
-git clone https://github.com/Ochwada/ZalandoLiteV2-authentication authentication-Service
+git clone https://github.com/Ochwada/ZalandoLiteV2-authentication authentication-service
+
+git clone https://github.com/Ochwada/ZalandoLiteV2-inventory inventory-service
 
 
 ```
@@ -169,6 +188,7 @@ Each service includes a `.env` file with required configuration.
 Ensure you have a `Dockerfile` and `docker-compose.yml`
 Then run with : 
 ```yaml
+
 docker-compose build --no-cache    # Rebuild all images from scratch
 docker-compose up
 
