@@ -12,9 +12,9 @@ This system consists of 7 microservices:
 |----------------------------------------------------------------------------------------|--------------------------------|----------|------|----------------|-----------------------------------------------|
 | [**Authentication  Service**](https://github.com/Ochwada/ZalandoLiteV2-authentication) | Microservice 1: Authentication |          | 9080 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Product Service**]( )                                                               | Microservice 2: Product        |          | 8586 | 🚧 in Progress | [**Reyhan**](https://github.com/reyhanovelek) |
-| [**Inventory Service**](https://github.com/Ochwada/ZalandoLiteV2-inventory)            | Microservice 3: Inventory      |          | 8587 | 🚧 In Progress | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Inventory Service**](https://github.com/Ochwada/ZalandoLiteV2-inventory)            | Microservice 3: Inventory      |          | 8587 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Customer  Service**]( )                                                             | Microservice 4: Customer       |          | 8588 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |
-| [**Order Service**]( )                                                                 | Microservice 5: Order          |          | 8589 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Order Service**]( )                                                                 | Microservice 5: Order          |          | 8589 | 🚧 in Progress | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Discount  Service**]( )                                                             | Microservice 6: Discount       |          | 8590 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |                       
 | [**Review  Service**]( )                                                               | Microservice 7: Review         |          | 8591 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
 
