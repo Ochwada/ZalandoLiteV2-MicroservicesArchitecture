@@ -14,7 +14,7 @@ This system consists of 7 microservices:
 | [**Product Service**]( )                                                               | Microservice 2: Product        |          | 8586 | 🚧 in Progress | [**Reyhan**](https://github.com/reyhanovelek) |
 | [**Inventory Service**](https://github.com/Ochwada/ZalandoLiteV2-inventory)            | Microservice 3: Inventory      |          | 8587 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Customer  Service**]( )                                                             | Microservice 4: Customer       |          | 8588 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |
-| [**Order Service**]( )                                                                 | Microservice 5: Order          |          | 8589 | 🚧 in Progress | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Order Service**](https://github.com/Ochwada/ZalandoLiteV2-order)                    | Microservice 5: Order          |          | 8589 | 🚧 in Progress | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Discount  Service**]( )                                                             | Microservice 6: Discount       |          | 8590 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |                       
 | [**Review  Service**]( )                                                               | Microservice 7: Review         |          | 8591 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
 
@@ -118,6 +118,20 @@ The system is composed of several specialized services, each responsible for a s
 - **CRUD operations for inventory**: Allows the creation and updating of stock data.
 - **Track stock per product**: Maintains quantity and stock status for each individual product.
 
+
+### 5️⃣ Microservice 5: Order Service
+[Git Repository : Order Service](https://github.com/Ochwada/ZalandoLiteV2-order)
+
+**Purpose**: Manages the lifecycle of customer orders in the ZalandoLite V2 system.
+
+#### Core Functions:
+- **Accepts and stores customer orders** in a PostgreSQL database
+- **Checks stock availability** through Inventory Service 
+- **Updates inventory** if order is validated and confirmed
+
+###  7️⃣ Microservice 7: Review Service
+
+
 ---
 
 ## Common Tech Stack
@@ -161,6 +175,8 @@ git clone https://github.com/Ochwada/ZalandoLiteV2-authentication authentication
 
 git clone https://github.com/Ochwada/ZalandoLiteV2-inventory inventory-service
 
+git clone https://github.com/Ochwada/ZalandoLiteV2-order order-service
+
 
 ```
 
@@ -176,7 +192,11 @@ MicroInventorySystem/
 ├── authentication-service/
 ├── product-service/
 ├── inventory-service/
-└── order-service/
+├── customer-service/
+├── order-service/
+├── discount-service/
+├── review-service/
+└── 
 ```
 
 ### Step 3: Environment Variables / Environment Configurations
