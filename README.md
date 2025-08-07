@@ -117,6 +117,9 @@ The system is composed of several specialized services, each responsible for a s
 #### Core Functions:
 - **CRUD operations for inventory**: Allows the creation and updating of stock data.
 - **Track stock per product**: Maintains quantity and stock status for each individual product.
+
+---
+
 ## Common Tech Stack
 
 | Technology          | Purpose                                                                      |
