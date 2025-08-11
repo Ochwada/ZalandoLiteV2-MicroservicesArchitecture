@@ -231,3 +231,9 @@ docker volume ls
 ```
 
 
+# Results
+
+- For `docker-compose build --no-cache`
+
+![img.png](img.png)
+
