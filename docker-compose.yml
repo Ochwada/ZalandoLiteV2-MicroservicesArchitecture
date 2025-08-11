@@ -1,8 +1,4 @@
-# Docker Compose configuration for micro-inventory system with 3 microservices
-# - product-service (uses PostgreSQL)
-# - inventory-service (uses MongoDB)
-# - order-service (uses MongoDB)
-# Includes shared networks and persistent volumes
+name: zalandolite-v2
 
 # version: '3.8'
 
@@ -38,7 +34,7 @@ services:
       - inventory-service                # Ensure inventory service is available
     networks:
       - zalando-backend                          # Connect to shared backend network
-
+    restart: unless-stopped
   #========================================================================================
   # 🗄️ PostgreSQL Database used by Product Service
   productsDB:
@@ -52,7 +48,7 @@ services:
       - pg_data:/var/lib/postgresql/data  # Persist PostgreSQL data between restarts
     networks:
       - zalando-backend
-
+    restart: unless-stopped
   #========================================================================================
   # 🧩 Microservice 3: Inventory Service
   # A Spring Boot service that tracks stock levels, using MongoDB as the database.
@@ -69,7 +65,7 @@ services:
       - mongo                            # Ensure MongoDB starts first
     networks:
       - zalando-backend
-
+    restart: unless-stopped
   #========================================================================================
   # 🧩 Microservice 5: Order Service
   # A Spring Boot service that handles customer orders, checks stock via inventory-service.
@@ -92,7 +88,7 @@ services:
   # Shared MongoDB instance used by inventory-service and order-service.
   # Each service connects to a different logical database inside MongoDB.
   mongo:
-    image: mongo:6.0
+    image: mongo:7
     container_name: mongo
     ports:
       - "27017:27017"                    # Expose MongoDB for development or admin tools
@@ -100,7 +96,7 @@ services:
       - mongo_data:/data/db              # Persist MongoDB data to local volume
     networks:
       - zalando-backend
-
+    restart: unless-stopped
 #========================================================================================
 # 🔗 Docker network for internal service communication
 networks:
