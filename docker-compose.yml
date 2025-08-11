@@ -1,0 +1,114 @@
+# Docker Compose configuration for micro-inventory system with 3 microservices
+# - product-service (uses PostgreSQL)
+# - inventory-service (uses MongoDB)
+# - order-service (uses MongoDB)
+# Includes shared networks and persistent volumes
+
+# version: '3.8'
+
+#========================================================================================
+services:
+  # 🧩 Microservice 1: Authentication Service
+  # A Spring Boot service that handles customer orders, checks stock via inventory-service.
+  authentication-service:
+    build:
+      context: ./authentication-service
+      dockerfile: Dockerfile
+    container_name: authentication-service
+    ports:
+      - "9080:9080"
+    env_file:
+      - ./authentication-service/.env             # Contains Mongo URI and other configs
+
+  #========================================================================================
+
+  # 🧩 Microservice 2: Product Service
+  # A Spring Boot application that manages product data and communicates with inventory service.
+  product-service:
+    build:
+      context: ./product-service         # Build context directory for Dockerfile
+      dockerfile: Dockerfile             # Dockerfile used to build this service
+    container_name: product-service
+    ports:
+      - "8586:8586"                      # Map container port 8586 to host 8586
+    env_file:
+      - ./product-service/.env           # Load environment variables from local .env file
+    depends_on:
+      - productsDB                      # Ensure database starts before app
+      - inventory-service                # Ensure inventory service is available
+    networks:
+      - zalando-backend                          # Connect to shared backend network
+
+  #========================================================================================
+  # 🗄️ PostgreSQL Database used by Product Service
+  productsDB:
+    image: postgres:15                   # Use official PostgreSQL image
+    container_name: productsDB
+    env_file:
+      - ./product-service/.env           # Contains POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
+    ports:
+      - "5432:5432"                      # Map container port 5432 to host
+    volumes:
+      - pg_data:/var/lib/postgresql/data  # Persist PostgreSQL data between restarts
+    networks:
+      - zalando-backend
+
+  #========================================================================================
+  # 🧩 Microservice 3: Inventory Service
+  # A Spring Boot service that tracks stock levels, using MongoDB as the database.
+  inventory-service:
+    build:
+      context: ./inventory-service
+      dockerfile: Dockerfile
+    container_name: inventory-service
+    ports:
+      - "8587:8587"
+    env_file:
+      - ./inventory-service/.env         # Contains Mongo URI and other app configs
+    depends_on:
+      - mongo                            # Ensure MongoDB starts first
+    networks:
+      - zalando-backend
+
+  #========================================================================================
+  # 🧩 Microservice 5: Order Service
+  # A Spring Boot service that handles customer orders, checks stock via inventory-service.
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    container_name: order-service
+    ports:
+      - "8589:8589"
+    env_file:
+      - ./order-service/.env             # Contains Mongo URI and other configs
+    depends_on:
+      - mongo
+    networks:
+      - zalando-backend
+
+  #========================================================================================
+  # 🍃 MongoDB (shared)
+  # Shared MongoDB instance used by inventory-service and order-service.
+  # Each service connects to a different logical database inside MongoDB.
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    ports:
+      - "27017:27017"                    # Expose MongoDB for development or admin tools
+    volumes:
+      - mongo_data:/data/db              # Persist MongoDB data to local volume
+    networks:
+      - zalando-backend
+
+#========================================================================================
+# 🔗 Docker network for internal service communication
+networks:
+  zalando-backend:
+    external: true                     # Default Docker bridge network
+
+#========================================================================================
+# 💾 Named volumes for data persistence
+volumes:
+  mongo_data:                            # MongoDB data volume
+  pg_data:                               # PostgreSQL data volume
