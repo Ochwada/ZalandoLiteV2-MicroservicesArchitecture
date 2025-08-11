@@ -10,11 +10,11 @@ This system consists of 7 microservices:
 
 | Microservice                                                                           | Role / Service                 | Database | Port | Status         | Done By                                       |
 |----------------------------------------------------------------------------------------|--------------------------------|----------|------|----------------|-----------------------------------------------|
-| [**Authentication  Service**](https://github.com/Ochwada/ZalandoLiteV2-authentication) | Microservice 1: Authentication |          | 9080 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
-| [**Product Service**]( )                                                               | Microservice 2: Product        |          | 8586 | 🚧 in Progress | [**Reyhan**](https://github.com/reyhanovelek) |
-| [**Inventory Service**](https://github.com/Ochwada/ZalandoLiteV2-inventory)            | Microservice 3: Inventory      |          | 8587 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
-| [**Customer  Service**](https://github.com/reyhanovelek/customer-service)              | Microservice 4: Customer       |          | 8588 | 🚧 in Progress | [**Reyhan**](https://github.com/reyhanovelek) |
-| [**Order Service**](https://github.com/Ochwada/ZalandoLiteV2-order)                    | Microservice 5: Order          |          | 8589 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Authentication  Service**](https://github.com/Ochwada/ZalandoLiteV2-authentication) | Microservice 1: Authentication | -        | 9080 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Product Service**](https://github.com/reyhanovelek/ZalandoLiteV2-product1)          | Microservice 2: Product        | Postgres | 8586 | ✅ Done         | [**Reyhan**](https://github.com/reyhanovelek) |
+| [**Inventory Service**](https://github.com/Ochwada/ZalandoLiteV2-inventory)            | Microservice 3: Inventory      | Mongo    | 8587 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
+| [**Customer  Service**](https://github.com/reyhanovelek/customer-service)              | Microservice 4: Customer       | Mongo    | 8588 | 🚧 in Progress | [**Reyhan**](https://github.com/reyhanovelek) |
+| [**Order Service**](https://github.com/Ochwada/ZalandoLiteV2-order)                    | Microservice 5: Order          | Mongo    | 8589 | ✅ Done         | [**Ochwada**](https://github.com/Ochwada)     |
 | [**Discount  Service**]( )                                                             | Microservice 6: Discount       |          | 8590 | 🧠 Planning    | [**Reyhan**](https://github.com/reyhanovelek) |                       
 | [**Review  Service**]( )                                                               | Microservice 7: Review         |          | 8591 | 🧠 Planning    | [**Ochwada**](https://github.com/Ochwada)     |
 
@@ -103,11 +103,13 @@ The system is composed of several specialized services, each responsible for a s
 
 
 ### 2️⃣ Microservice 2: Product  Service
-🖇️ [Git Repository : Product Service]( )
+🖇️ [Git Repository : Product Service](https://github.com/reyhanovelek/ZalandoLiteV2-product1)
 
 **Purpose**: Manages product catalog (CRUD), categories, pricing.
 
 #### Core Functions:
+- Communicate with Inventory Service to check stock quantity
+-  **CRUD operations for product**: Allows the creation and updating of  products.
 
 ### 3️⃣ Microservice 3: Inventory  Service
 🖇️ [Git Repository : Inventory Service](https://github.com/Ochwada/ZalandoLiteV2-inventory)
@@ -173,12 +175,13 @@ The system is composed of several specialized services, each responsible for a s
 
 git clone https://github.com/Ochwada/ZalandoLiteV2-authentication authentication-service
 
+git clone https://github.com/reyhanovelek/ZalandoLiteV2-product1 product-service
+
 git clone https://github.com/Ochwada/ZalandoLiteV2-inventory inventory-service
 
 git clone https://github.com/reyhanovelek/customer-service customer-service
 
 git clone https://github.com/Ochwada/ZalandoLiteV2-order order-service
-
 
 ```
 
